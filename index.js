@@ -19,8 +19,11 @@ const readingFile = () => {
 let list = readingFile();
 
 
-app.get("/api/items/:dynamicFliter", (req, res) => {
+app.get("/api/items", (req, res) => {
+  res.send(list);
+})
 
+app.get("/api/items/:dynamicFliter", (req, res) => {
    function searchNestedObject(obj, input){
     for(const key in obj){
       if(typeof(obj[key]) === "string" && obj[key].toLowerCase().includes(input)){
